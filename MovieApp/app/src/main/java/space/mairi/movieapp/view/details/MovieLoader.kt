@@ -18,9 +18,7 @@ import java.util.stream.Collectors
 import javax.net.ssl.HttpsURLConnection
 
 class MovieLoader (
-    private val listener : MovieLoaderListener,
-    private val lang : String,
-    private val stat : String
+    private val listener : MovieLoaderListener
 ) {
     interface MovieLoaderListener {
         fun onLoaded(movieDTO: MovieDTO)

@@ -2,8 +2,10 @@ package space.mairi.movieapp.ui.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import space.mairi.movieapp.model.MovieDTO
 import space.mairi.movieapp.model.Repository
 import space.mairi.movieapp.model.RepositoryImpl
+import space.mairi.movieapp.view.details.MovieLoader
 import space.mairi.movieapp.viewmodel.AppState
 import java.lang.Thread.sleep
 
@@ -16,16 +18,16 @@ class MainViewModel(
         fun getMovie() = getDataFromServerSource(true)
 
 
-//        private val onLoaderListener : MovieLoader.MovieLoaderListener =
-//            object : MovieLoader.MovieLoaderListener {
-//                override fun onLoaded(movieDTO: MovieDTO) {
-//                    movieDTO
-//                }
-//
-//                override fun onFailed(throwable: Throwable) {
-//
-//                }
-//            }
+        private val onLoaderListener : MovieLoader.MovieLoaderListener =
+            object : MovieLoader.MovieLoaderListener {
+                override fun onLoaded(movieDTO: MovieDTO) {
+                    liveDataToObserver.value = AppState.Loading
+                }
+
+                override fun onFailed(throwable: Throwable) {
+
+                }
+            }
 
         fun getMovieFromServerStorageNowPlaying() = getDataFromServerSource(true)
 

@@ -14,7 +14,7 @@ class DetailsFragment : Fragment(){
     private var _binding :  FragmentDetailsBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var moviBundle : Movie
+    private lateinit var moviBundle : MovieDTO
 
     private val onLoaderListener : MovieLoader.MovieLoaderListener =
         object : MovieLoader.MovieLoaderListener {
@@ -28,7 +28,7 @@ class DetailsFragment : Fragment(){
         }
 
     companion object{
-        const val BUNDLE_EXTRA = "movie"
+        const val BUNDLE_EXTRA = "movieDTO"
 
         fun newInstance(bundle: Bundle) : DetailsFragment {
             val fragment = DetailsFragment()
@@ -49,14 +49,14 @@ class DetailsFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        moviBundle = arguments?.getParcelable<Movie>(BUNDLE_EXTRA) ?: Movie()
+        moviBundle = arguments?.getParcelable<MovieDTO>(BUNDLE_EXTRA) ?: MovieDTO()
 
         with(binding) {
             mainView.visibility = View.GONE
             loadingLayout.visibility = View.VISIBLE
         }
 
-        val loader = MovieLoader(onLoaderListener, moviBundle.lang, moviBundle.stat)
+        val loader = MovieLoader(onLoaderListener)
         loader.loadMovie()
     }
 
