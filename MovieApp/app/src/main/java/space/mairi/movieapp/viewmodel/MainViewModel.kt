@@ -39,7 +39,7 @@ class MainViewModel(
                 sleep(2000)
 
                 liveDataToObserver.postValue(
-                    AppState.Success(repositoryImpl.getMovieFromServer()))
+                    AppState.Success(repositoryImpl.getMovieFromServerStorageNowPlaying()))
 
             }.start()
         }

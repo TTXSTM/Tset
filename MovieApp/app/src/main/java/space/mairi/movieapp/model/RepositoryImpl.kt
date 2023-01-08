@@ -2,8 +2,8 @@ package space.mairi.movieapp.model
 
 class RepositoryImpl : Repository{
 
-    override fun getMovieFromServer(): List<MovieDTO> {
-        return listOf(MovieDTO())
+    override fun getMovieFromServerStorageNowPlaying(): List<MovieDTO?> {
+        return getMovieFromServer()
     }
 
     override fun getMovieFromLocalStorageNowPlaying(): List<Movie> {

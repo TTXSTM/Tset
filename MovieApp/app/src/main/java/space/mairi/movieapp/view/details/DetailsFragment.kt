@@ -71,11 +71,11 @@ class DetailsFragment : Fragment(){
             mainView.visibility = View.VISIBLE
             loadingLayout.visibility = View.GONE
 
-            movieName.text = movieDTO.items[0].title
-            movieReleseDate.text = movieDTO.items[0].releaseState
-            movieTime.text = movieDTO.items[0].runtimeStr
-            movieDescription.text = movieDTO.items[0].plot
-            movieOriginalName.text = movieDTO.items[0].fullTitle
+            movieName.text = movieDTO.items[0]?.title
+            movieReleseDate.text = movieDTO.items[0]?.releaseState
+            movieTime.text = movieDTO.items[0]?.runtimeStr
+            movieDescription.text = movieDTO.items[0]?.plot
+            movieOriginalName.text = movieDTO.items[0]?.fullTitle
         }
     }
 }
