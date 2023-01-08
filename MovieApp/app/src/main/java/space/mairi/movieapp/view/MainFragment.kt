@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
     private val isDataSetNowPlaying : Boolean = true
 
     private val adapter = MainFragmentAdapter(object : MainFragmentAdapter.OnItemClickListener{
-        override fun onItemClick(movie: MovieDTO) {
+        override fun onItemClick(movie: MovieDTO?) {
             activity?.supportFragmentManager?.apply {
 
                 beginTransaction()

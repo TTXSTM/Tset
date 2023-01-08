@@ -12,27 +12,27 @@ import space.mairi.movieapp.model.MovieDTO
 class MainFragmentAdapter(private val onItemClickListener: OnItemClickListener?) :
     RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>(){
 
-    private var movieData : List<MovieDTO> = listOf()
+    private var movieData : List<MovieDTO?> = listOf()
 
     interface OnItemClickListener {
-        fun onItemClick(movie: MovieDTO)
+        fun onItemClick(movie: MovieDTO?)
     }
-    fun setMovie(data: List<MovieDTO>) {
+    fun setMovie(data: List<MovieDTO?>) {
         movieData = data
         notifyDataSetChanged()
     }
 
     inner class MainViewHolder(view : View) : RecyclerView.ViewHolder(view){
-        fun bind(movie: MovieDTO){
+        fun bind(movie: MovieDTO?){
             itemView.apply {
                 findViewById<TextView>(R.id.mainFragmentRecylerItemTextView).text =
-                    movie.items[0].title
+                    movie?.items?.get(0)?.title
 
                 findViewById<TextView>(R.id.movie_year).text =
-                    movie.items[0].year
+                    movie?.items?.get(0)?.year
 
                 findViewById<TextView>(R.id.movie_rating).text =
-                    movie.items[0].imDbRating
+                    movie?.items?.get(0)?.imDbRating
 
                 setOnClickListener{
                     onItemClickListener?.onItemClick(movie)

@@ -6,22 +6,12 @@ import kotlinx.android.parcel.RawValue
 
 @Parcelize
 data class MovieDTO(
-    val items: List<ItemDTO> = ArrayList<ItemDTO>()
-        .apply {
-        add(
-            ItemDTO(
-                title = "Emma",
-                fullTitle = "Emma 2020",
-                releaseState = "19 june 2020",
-                year = "2020",
-                runtimeStr = "120 min",
-                plot = "plot",
-                imDbRating = "6.9"
-            )
-        )
-    }
+    val items: List<ItemDTO?> = ArrayList<ItemDTO?>()
+
 ): Parcelable
 
-fun getMovieFromServer() : List<MovieDTO> {
-    return listOf(MovieDTO())
+fun getMovieFromServer() : List<MovieDTO?> {
+    val items : List<MovieDTO> = ArrayList()
+    return items
 }
+
